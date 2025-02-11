@@ -46,9 +46,12 @@ from .add_tag import MYADDON_OT_add_tag
 from .add_tag import OBJECT_PT_tag
 from .export_scene import MYADDON_OT_export_scene
 from .create_ico_sphere import MYADDON_OT_create_ico_sphere
-from .spawn_import_symbol import MYADDON_OT_spawn_import_symbol
 from .disabled import MYADDON_OT_disabled
 from .disabled import OBJECT_PT_disabled
+from .spawn import MYADDON_OT_spawn_import_symbol
+from .spawn import MYADDON_OT_spawn_create_symbol
+from .spawn_player import MYADDON_OT_spawn_create_player_symbol
+from .spawn_enemy import MYADDON_OT_spawn_create_enemy_symbol
 
 #メニュー項目描画
 def draw_menu_manual(self, context):
@@ -73,8 +76,9 @@ class TOPBAR_MT_my_menu(bpy.types.Menu):
         #トップバーの「エディターメンテナンスメニュー」に項目(オペレーター)を追加
         self.layout.operator(MYADDON_OT_stretch_vertex.bl_idname, text=MYADDON_OT_stretch_vertex.bl_label)
         self.layout.operator(MYADDON_OT_create_ico_sphere.bl_idname, text=MYADDON_OT_create_ico_sphere.bl_label)
-        self.layout.operator(MYADDON_OT_spawn_import_symbol.bl_idname, text=MYADDON_OT_spawn_import_symbol.bl_label)
         self.layout.operator(MYADDON_OT_export_scene.bl_idname, text=MYADDON_OT_export_scene.bl_label)
+        self.layout.operator(MYADDON_OT_spawn_create_player_symbol.bl_idname, text=MYADDON_OT_spawn_create_player_symbol.bl_label)
+        self.layout.operator(MYADDON_OT_spawn_create_enemy_symbol.bl_idname, text=MYADDON_OT_spawn_create_enemy_symbol.bl_label)
         self.layout.separator()
         # 区切り線
         self.layout.separator()
@@ -120,9 +124,12 @@ classes = (
     OBJECT_OT_DeleteObjectID,
     MYADDON_OT_add_tag, 
     OBJECT_PT_tag,
-    MYADDON_OT_spawn_import_symbol,
     MYADDON_OT_disabled,
     OBJECT_PT_disabled,
+    MYADDON_OT_spawn_import_symbol,
+    MYADDON_OT_spawn_create_symbol,
+    MYADDON_OT_spawn_create_player_symbol,
+    MYADDON_OT_spawn_create_enemy_symbol
 )
 
 #Add-On有効化時コールバック
